@@ -36,7 +36,6 @@ export const Highlight = () => {
             opacity: 1
         })
 
-
     }, [])
     return (
         <section className='min-h-[100vh] mt-4 md:mt-16 bg-black'>
@@ -48,8 +47,8 @@ export const Highlight = () => {
             </div>
 
             <div id='get_start' className='flex flex-col items-center opacity-0 mt-5 md:mt-0'>
-                <a href="#" className='bg-stone-800 text-yellow-50 py-4 rounded-xl px-4 w-fit shadow-lg hover:shadow-gray-600'>Get Offer</a>
-                <span className='text-default my-5 font-bold'>Get Offer For 99$</span>
+                <a href="#" className='border-2 text-yellow-50 py-4 rounded-xl px-4 w-fit shadow-lg border-stone-500 hover:border-white hover:shadow-gray-600'>Get Offer</a>
+                <span className='text-default my-5 font-bold'>Buy New Iphone 15 Series For 99$</span>
             </div>
         </section>
     )
