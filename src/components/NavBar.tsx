@@ -6,6 +6,7 @@ import bag from "../assets/images/bag.svg";
 import type { RootState } from '../components/redux/Store'
 import { useSelector, useDispatch } from 'react-redux'
 import { onSearch } from './redux/slices/SearchSlice';
+import { AiOutlineMenu } from "react-icons/ai";
 
 const NavBar: React.FC = () => {
     const selector = useSelector((state: RootState) => state)
@@ -47,7 +48,8 @@ const NavBar: React.FC = () => {
 
     return (
         <header className='w-full text-primary'>
-            <nav className='hidden md:flex flex-row gap-8 justify-center py-5 items-center'>
+            {/* large screen nav */}
+            <nav className='hidden xl:flex flex-row gap-8 justify-center py-5 items-center'>
                 <img src={appleImg} className='h-5/6 w-[16px] cursor-pointer' />
                 {navlist.map((nav, index) => {
                     return (
@@ -57,15 +59,30 @@ const NavBar: React.FC = () => {
                 <img src={search} className='h-5/6 w-[16px] cursor-pointer' onClick={() => {
                     onVisibleSearch()
                 }} />
-                <img src={bag} className='h-5/6 w-[16px] cursor-pointer' />
+                <div>
+                    <p className='absolute ml-4 top-2'>12</p>
+                    <img src={bag} className='h-5/6 w-[16px] cursor-pointer' />
+                </div>
+
             </nav>
 
-            <nav className='flex flex-row justify-items-end items-baseline py-4 pr-12 gap-5 justify-end md:hidden'>
-                <img src={appleImg} className='h-5/6 w-[16px] cursor-pointer' />
-                <img src={search} className='h-5/6 w-[16px] cursor-pointer' onClick={() => {
-                    onVisibleSearch()
-                }} />
-                <img src={bag} className='h-5/6 w-[16px] cursor-pointer' />
+            {/* Mobile screen nav */}
+            <nav className='flex flex-row items-baseline py-4 xl:hidden justify-between'>
+
+                <div className='ml-10'>
+                    <AiOutlineMenu className='cursor-pointer w-[16px] h-5/6 relative' />
+                </div>
+                <div className=' flex flex-row pr-12 gap-5 justify-end justify-items-end'>
+
+                    <img src={appleImg} className='h-5/6 w-[16px] cursor-pointer' />
+                    <img src={search} className='h-5/6 w-[16px] cursor-pointer' onClick={() => {
+                        onVisibleSearch()
+                    }} />
+                    <div>
+                        <p className='absolute ml-4 top-2 text-[12px]'>1002</p>
+                        <img src={bag} className='h-5/6 w-[16px] cursor-pointer' />
+                    </div>
+                </div>
             </nav>
 
             <input type="text" className='bg-transparent border pl-2 rounded-md' hidden={selector.searches.isHide} placeholder='Search' />
